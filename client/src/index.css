@@ -19,3 +19,40 @@
     --accent: #548d2a;
   }
 }
+
+
+ .loader-container {
+  width: 90%;
+  height: 2rem;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.loader {
+  display: flex;
+  width: 200%; /* double width for duplicated items */
+  height: 2rem;
+  animation: slide 2s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.item {
+  flex: 0 0 auto;
+  width: 10rem; /* fixed width for consistent sliding */
+  line-height: 2rem;
+  text-align: center;
+  margin-right: 1rem;
+  border-radius: 0.25rem;
+}
+
+@keyframes slide {
+  0% {
+   translate: 0%;
+  }
+  100% {
+    translate: -100%;
+  }
+}

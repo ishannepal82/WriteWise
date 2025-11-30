@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Menu } from 'lucide-react';
 
 export default function Header() {
   const navItems = [
@@ -19,8 +20,8 @@ export default function Header() {
         </div>
 
         {/* Centered Navigation */}
-        <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <ul className="flex gap-10 text-lg font-medium">
+        <nav className="md:flex gap-4 text-lg font-medium hidden">
+          <ul className="flex gap-8 text-md font-medium">
             {navItems.map((item) => (
               <li key={item.to}>
                 <NavLink
@@ -43,16 +44,9 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-
-        {/* Actions */}
-        <div className="actions flex gap-4">
-          <button className="bg-primary rounded-full px-6 py-2 text-background font-medium hover:bg-primary/90 transition hover:scale-105 ">
-            Login
-          </button>
-          <button className="w-[100px] text-primary border-2 border-primary rounded-full font-medium hover:bg-primary/5 transition">
-            Docs
-          </button>
-        </div>
+        <button className="md:hidden block" onClick={() => {}}>
+          <Menu />
+        </button>
       </div>
     </header>
   );
