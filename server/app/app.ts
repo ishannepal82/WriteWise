@@ -8,7 +8,7 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://writewise.pages.dev/",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
