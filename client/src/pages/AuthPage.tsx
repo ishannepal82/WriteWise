@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import UseAuth  from '../hooks/UseAuth';
 
 export default function AuthPage() {
   const [email, setEmail] = useState('');
@@ -6,11 +7,21 @@ export default function AuthPage() {
   const [name, setName] = useState(''); 
   const [isLogin, setIsLogin] = useState(true); 
 
+  const {handleRegister, handleLogin} = UseAuth(); 
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Email:', email);
+    console.log('Email:', email); 
     console.log('Password:', password);
+    if (isLogin) {
+      handleLogin({email, password});
+    } else {
+      handleRegister({name, email, password});
+    }
   };
+
+  
+
 
   return (
     <section className="flex items-center justify-center min-h-screen bg-background">
