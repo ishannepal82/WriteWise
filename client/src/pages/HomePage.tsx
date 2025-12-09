@@ -77,6 +77,7 @@ export default function HomePage() {
           boxShadow: isMouseInWindow 
             ? "0 0 20px #82ff04, 0 0 40px #82ff0480, 0 0 60px #82ff0440" 
             : "none",
+            cursor: isMouseInWindow ? "pointer" : "none",
         }}
       />
     </div>

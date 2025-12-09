@@ -1,8 +1,11 @@
 import express from 'express';
 import { authRouter } from './api/routers/auth';
 import dotenv from 'dotenv';
-import { connectDB, DisConnectDB } from './config/db';
+import { connectDB} from './config/db';
+import { connectOpenRouter } from './config/openrouter';
+import { serviceRouter } from './api/routers/services';
 import cors from 'cors';
+
 dotenv.config();
 const app = express();
 
@@ -18,11 +21,13 @@ app.options("/", cors());
 
 app.use(express.json());
 
-// Connecting to DB
+// Connecting to DB 
 connectDB();
+connectOpenRouter();
 
 // Routers
 app.use('/auth', authRouter);
+app.use('/service', serviceRouter)
 
 
 

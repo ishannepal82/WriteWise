@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/ishannepal82/WriteWise#readme",
   "dependencies": {
+    "@openrouter/sdk": "^0.1.27",
+    "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",

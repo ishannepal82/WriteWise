@@ -31,7 +31,7 @@
 
 .loader {
   display: flex;
-  width: 200%; /* double width for duplicated items */
+  width: 200%; 
   height: 2rem;
   animation: slide 2s linear infinite;
   position: absolute;
@@ -41,7 +41,7 @@
 
 .item {
   flex: 0 0 auto;
-  width: 10rem; /* fixed width for consistent sliding */
+  width: 10rem; 
   line-height: 2rem;
   text-align: center;
   margin-right: 1rem;
@@ -56,3 +56,13 @@
     translate: -100%;
   }
 }
+
+.radial-bg {
+  background: radial-gradient(
+    circle at bottom,
+    var(--secondary) 5%,
+    transparent 50%
+  );
+}
+
+

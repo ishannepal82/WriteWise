@@ -1,10 +1,14 @@
 import Header from './components/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
+
 
 export default function Layout() {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
    <>
-    <Header />
+    {isHome && <Header />}
     <Outlet />
    </>
   )

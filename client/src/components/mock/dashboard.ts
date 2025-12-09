@@ -1,0 +1,42 @@
+export const mockNotes = [
+  {
+    id: 1,
+    title: "Project Ideas",
+    content: "Brainstorming concepts for the next big project...",
+    lastEdited: "2025-01-20",
+    color: "primary",
+    icon: "lightbulb",
+  },
+  {
+    id: 2,
+    title: "Meeting Notes",
+    content: "Summary of discussions with the design team.",
+    lastEdited: "2025-01-18",
+    color: "secondary",
+    icon: "file-text",
+  },
+  {
+    id: 3,
+    title: "Todo List",
+    content: "Tasks to complete this week...",
+    lastEdited: "2025-01-17",
+    color: "accent",
+    icon: "check-square",
+  },
+  {
+    id: 4,
+    title: "Personal Journal",
+    content: "Thoughts and reflections from the past few days.",
+    lastEdited: "2025-01-15",
+    color: "primary",
+    icon: "pen-line",
+  },
+  {
+    id: 5,
+    title: "UI Sketches",
+    content: "Quick layout ideas for new dashboard components.",
+    lastEdited: "2025-01-10",
+    color: "secondary",
+    icon: "layout",
+  },
+];
