@@ -22,7 +22,7 @@ export default function LexicalEditor() {
     theme: {
       paragraph: "mb-2",
     },
-    onError(error) {
+    onError(error : Error) {
       console.error(error);
     },
   };
