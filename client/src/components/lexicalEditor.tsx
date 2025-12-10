@@ -1,4 +1,3 @@
-"use client";
 import {
   LexicalComposer,
 } from "@lexical/react/LexicalComposer";

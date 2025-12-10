@@ -15,15 +15,18 @@ function Placeholder() {
   );
 }
 
-export default function LexicalEditor({ onChangeHtml }: { onChangeHtml: any }) {
+// ResultPage.tsx
+export default function LexicalEditor({onChangeHtml}: {
+  onChangeHtml: (html: string) => void;
+}) {
   const config = {
     namespace: "ResultEditor",
     theme: {},
-    onError(error: any) {
+    onError(error: Error) {
       console.error(error);
     },
   };
-
+  
   return (
     <div className="relative h-full">
       <LexicalComposer initialConfig={config}>
