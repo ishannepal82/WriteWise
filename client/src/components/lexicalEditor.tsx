@@ -1,50 +1,64 @@
-import {
-  LexicalComposer,
-} from "@lexical/react/LexicalComposer";
+import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
+import { $generateHtmlFromNodes } from "@lexical/html";
+import PlaceHolder from "../components/mock/placeholder";
+import { LetterText } from "lucide-react";
+import ToolBar from "./resultpage.tsx/toolbar";
 
-function Placeholder() {
-  return (
-    <div className="text-gray-400 absolute top-3 left-3 pointer-events-none">
-      Start typing your note...
-    </div>
-  );
-}
-
-export default function LexicalEditor() {
+export default function LexicalEditor({onChangeHtml}: {
+  onChangeHtml: (html: string) => void;
+}) {
   const config = {
-    namespace: "MyEditor",
+    namespace: "ResultEditor",
     theme: {
-      paragraph: "mb-2",
+      paragraph : "text-text text-md",
+      h1: "text-text text-xl font-semibold"
     },
-    onError(error : Error) {
+    onError(error: Error) {
       console.error(error);
     },
   };
-
+  
   return (
-    <div className="w-full max-w-2xl mx-auto border border-gray-300 rounded-xl p-4 bg-white">
+    <div className="flex justify-center items-center w-full h-screen pt-10 font-poppins">
+    <div className="rounded-sm w-full h-full border-x-2 w-[50rem] shadow-md">
+      <div className="relative w-full h-full">
       <LexicalComposer initialConfig={config}>
+        <h1 className="px-10 py-4 text-2xl font-semibold">
+          <span>
+            <LetterText className="text-primary"/>
+            <ToolBar />
+          </span>
+          Heading: Indicator 
+          
+        </h1>
         <RichTextPlugin
           contentEditable={
-            <ContentEditable className="outline-none min-h-[200px] p-3" />
+            <ContentEditable 
+            className="outline-none px-10 py-6 w-full h-full" 
+            autoFocus />
           }
-          placeholder={<Placeholder />}
+          placeholder= {<PlaceHolder />}
           ErrorBoundary={LexicalErrorBoundary}
         />
 
         <HistoryPlugin />
 
-        <OnChangePlugin onChange={(editorState) => {
-          editorState.read(() => {
-            // Optional: run logic when text changes
-          });
-        }} />
+        <OnChangePlugin
+          onChange={(editorState, editor) => {
+            editorState.read(() => {
+              const htmlString = $generateHtmlFromNodes(editor);
+              onChangeHtml(htmlString); 
+            });
+          }}
+        />
       </LexicalComposer>
+      </div>
     </div>
+  </div>
   );
 }

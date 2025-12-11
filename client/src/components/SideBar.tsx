@@ -10,7 +10,7 @@ type SideBarProps = {
 export default function SideBar({toggleSidebar} : SideBarProps) {
     const [isShown, setIsShown] = useState(true);
     return (
-        <aside className="w-64 h-full flex flex-col border-r-2 p-4 space-y-6 bg-background text-text ">
+        <aside className="w-64 h-full flex flex-col border-r p-4 space-y-6 bg-background text-text ">
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-2xl font-bold tracking-wide text-primary">WriteWise</h1>
                 <div className="md:hidden block" onClick={() => toggleSidebar()} >
